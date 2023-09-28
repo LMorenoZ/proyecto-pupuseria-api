@@ -1,9 +1,12 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 // Routes
 import mesasRoutes from "./routes/language.routes";
 
 const app = express();
+
+app.use(cors());
 
 // Settings
 app.set("port", 4000);

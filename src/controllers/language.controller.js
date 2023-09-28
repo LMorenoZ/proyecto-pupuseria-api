@@ -44,15 +44,15 @@ const addLanguage = async (req, res) => {
 const updateLanguage = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, programmers } = req.body;
+        const { mesaNum, asientos, estado } = req.body;
 
-        if (id === undefined || name === undefined || programmers === undefined) {
+        if (mesaNum === undefined || asientos === undefined || estado === undefined) {
             res.status(400).json({ message: "Bad Request. Please fill all field." });
         }
 
-        const language = { name, programmers };
+        const mesa = { mesaNum, asientos, estado};
         const connection = await getConnection();
-        const result = await connection.query("UPDATE language SET ? WHERE id = ?", [language, id]);
+        const result = await connection.query("UPDATE mesa SET ? WHERE id = ?", [mesa, id]);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -64,7 +64,7 @@ const deleteLanguage = async (req, res) => {
     try {
         const { id } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("DELETE FROM language WHERE id = ?", id);
+        const result = await connection.query("DELETE FROM mesa WHERE id = ?", id);
         res.json(result);
     } catch (error) {
         res.status(500);
