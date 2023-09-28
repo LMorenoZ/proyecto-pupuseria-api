@@ -3,10 +3,8 @@ import { methods as ordenController } from "./../controllers/orden.controller";
 
 const router = Router();
 
-router.get("/", ordenController.getLanguages);
-// router.get("/:id", languageController.getLanguage);
-router.post("/", ordenController.addLanguage);
-router.put("/:id", ordenController.updateLanguage);
-// router.delete("/:id", ordenController.deleteLanguage);
+router.get("/", ordenController.traerOrdenes);
+router.post("/", ordenController.crearOrden);
+router.put("/:id", ordenController.actualizarOrden);
 
 export default router;

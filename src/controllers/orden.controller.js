@@ -1,6 +1,6 @@
 import { getConnection } from "./../database/database";
 
-const getLanguages = async (req, res) => {
+const traerOrdenes = async (req, res) => {
     try {
         const connection = await getConnection();
         const result = await connection.query("SELECT * from orden");
@@ -11,11 +11,11 @@ const getLanguages = async (req, res) => {
     }
 };
 
-// const getLanguage = async (req, res) => {
+// const getOrden = async (req, res) => {
 //     try {
 //         const { id } = req.params;
 //         const connection = await getConnection();
-//         const result = await connection.query("SELECT id, name, programmers FROM language WHERE id = ?", id);
+//         const result = await connection.query("SELECT * FROM orden WHERE id = ?", id);
 //         res.json(result);
 //     } catch (error) {
 //         res.status(500);
@@ -23,7 +23,7 @@ const getLanguages = async (req, res) => {
 //     }
 // };
 
-const addLanguage = async (req, res) => {
+const crearOrden = async (req, res) => {
     try {
         const { queso, revueltas, chicharron, gaseosa, refresco, chocolate, estado, mesaNum } = req.body;
 
@@ -44,7 +44,7 @@ const addLanguage = async (req, res) => {
     }
 };
 
-const updateLanguage = async (req, res) => {
+const actualizarOrden = async (req, res) => {
     try {
         const { id } = req.params;
         const { queso, revueltas, chicharron, gaseosa, refresco, chocolate, estado, mesaNum } = req.body;
@@ -66,22 +66,9 @@ const updateLanguage = async (req, res) => {
     }
 };
 
-// const deleteLanguage = async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const connection = await getConnection();
-//         const result = await connection.query("DELETE FROM mesa WHERE id = ?", id);
-//         res.json(result);
-//     } catch (error) {
-//         res.status(500);
-//         res.send(error.message);
-//     }
-// };
-
 export const methods = {
-    getLanguages,
-   // getLanguage,
-    addLanguage,
-    updateLanguage
-    //deleteLanguage
+    traerOrdenes,
+   // getOrden,
+    crearOrden,
+    actualizarOrden
 };

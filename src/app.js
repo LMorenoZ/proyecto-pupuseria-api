@@ -2,11 +2,12 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 // Routes
-import mesasRoutes from "./routes/language.routes";
+import mesasRoutes from "./routes/mesa.routes";
 import ordenRoutes from "./routes/orden.routes";
 
 const app = express();
 
+// habilitar cors
 app.use(cors());
 
 // Settings
